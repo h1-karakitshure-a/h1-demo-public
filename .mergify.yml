@@ -7,3 +7,25 @@ pull_request_rules:
       - label=h1-queue
     actions:
       queue:
+  - name: h1 bot comment
+    conditions:
+      - label=h1-bot-comment
+    actions:
+      comment:
+        message: "h1 research test: comment through bot_account"
+        bot_account: karakitshure-h1b
+  - name: h1 bot review
+    conditions:
+      - label=h1-bot-review
+    actions:
+      review:
+        type: COMMENT
+        message: "h1 research test: review through bot_account"
+        bot_account: karakitshure-h1b
+  - name: h1 author comment
+    conditions:
+      - label=h1-author-comment
+    actions:
+      comment:
+        message: "h1 research test: comment as the pull request author"
+        bot_account: "{{ author }}"
